@@ -23,11 +23,15 @@ class GameLogic:  # class to handle main game logic
         print("1. paper")
         print("2. scissors")
 
-    def get_player_hand(self): # method to get and return the player's choice
+    def get_player_hand(self): # method to get and return the player's choice/ does error handling as well
         try:
             player_hand = int(input("Enter your choice: "))
         except ValueError:
             print("Invalid option")
+            return None
+        if player_hand < 0 or player_hand > 2:
+            print("Invalid option")
+            return None
         return player_hand
 
     def get_computer_hand(self): # method to compute and return the computer's hand
@@ -76,6 +80,5 @@ class GameLogic:  # class to handle main game logic
             if result == "draw":
                 print("Let's try that again...\n")
                 continue  # draw, replay automatically
-
 
 
