@@ -93,6 +93,9 @@ def main(): #main method to run the program
     while True:
         game.play_game()
         again = input("Play again? (y/n): ").strip().lower()
+        if again != "y" and again != "n":
+            print("Invalid option")
+            continue
         if again != "y":
             print("Thanks for playing!")
             break
