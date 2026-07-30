@@ -27,10 +27,10 @@ class GameLogic:  # class to handle main game logic
         try:
             player_hand = int(input("Enter your choice: "))
         except ValueError:
-            print("Invalid option")
+            print("Invalid option\n")
             return None
         if player_hand < 0 or player_hand > 2:
-            print("Invalid option")
+            print("Invalid option\n")
             return None
         return player_hand
 
@@ -80,5 +80,23 @@ class GameLogic:  # class to handle main game logic
             if result == "draw":
                 print("Let's try that again...\n")
                 continue  # draw, replay automatically
+            else:
+                break
 
 
+def main(): #main method to run the program
+    menu = MainMenu()
+    menu.greeting()
+
+    game = GameLogic()
+
+    while True:
+        game.play_game()
+        again = input("Play again? (y/n): ").strip().lower()
+        if again != "y":
+            print("Thanks for playing!")
+            break
+
+
+if __name__ == "__main__":
+    main()
